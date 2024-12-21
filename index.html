@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نجم الأصناف</title>
-</head>
     <style>
         @font-face {
             font-family: 'BahijTheSansArabic';
@@ -87,7 +86,7 @@
         .car-brands {
             position: relative;
             overflow: hidden;
-            width: 45%; /* Adjust to align with text */
+            width: 90%; /* Adjusted for better responsiveness */
             margin: 20px auto; /* Center the container */
             height: 100px;
         }
@@ -101,8 +100,15 @@
             width: auto;
             height: 80px;
         }
-        .car-brands:hover .brands-slider {
+        .car-brands:hover .brands-slider,
+        .car-brands:active .brands-slider {
             animation-play-state: paused;
+        }
+
+        @media (max-width: 768px) {
+            .brands-slider img {
+                height: 60px; /* Reduce size for smaller screens */
+            }
         }
     </style>
 </head>
