@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نجم الأصناف لقطع غيار السيارات</title>
+</head>
+    <style>
+        @font-face {
+            font-family: 'BahijTheSansArabic';
+            src: url('fonts/bahij_thesansarabic-bold-webfont.woff2') format('woff2'),
+                 url('fonts/bahij_thesansarabic-bold-webfont.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'BahijTheSansArabic';
+            src: url('fonts/bahij_thesansarabic-plain-webfont.woff2') format('woff2'),
+                 url('fonts/bahij_thesansarabic-plain-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'BahijTheSansArabic', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #383838;
+            background-color: #F9F9F9;
+        }
+        header {
+            background-color: #E63679;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #650A34;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .section {
+            padding: 20px;
+            text-align: center;
+        }
+        .about {
+            background-color: #F3F3F3;
+        }
+        .services {
+            background-color: #FFFFFF;
+        }
+        .contact {
+            background-color: #939598;
+            color: white;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #E63679;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .btn:hover {
+            background-color: #650A34;
+        }
+
+        /* Animation for the car logos */
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .car-brands {
+            position: relative;
+            overflow: hidden;
+            width: 45%; /* Adjust to align with text */
+            margin: 20px auto; /* Center the container */
+            height: 100px;
+        }
+        .brands-slider {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            animation: marquee 10s linear infinite;
+        }
+        .brands-slider img {
+            width: auto;
+            height: 80px;
+        }
+        .car-brands:hover .brands-slider {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="شعار متجر نجم الأصناف" style="max-width: 250px; height: auto;">
+        <h1>نجم الأصناف لقطع غيار السيارات</h1>
+    </header>
+
+    <nav>
+        <a href="#about">من نحن</a>
+        <a href="#services">خدماتنا</a>
+        <a href="#contact">تواصل معنا</a>
+    </nav>
+
+    <section id="about" class="section about">
+        <h2>من نحن</h2>
+        <p>متخصصون في تقديم أفضل قطع غيار السيارات بأعلى معايير الجودة. تأسسنا برؤية واضحة لتلبية احتياجات عملائنا، ونهدف إلى أن نكون الوجهة الأولى لأصحاب السيارات الباحثين عن قطع غيار موثوقة ومتنوعة.</p>
+    </section>
+
+    <section id="services" class="section services">
+        <h2>خدماتنا</h2>
+        <p>نوفر مجموعة متنوعة من قطع الغيار التي تلبي جميع احتياجات السيارات، مع ضمان الجودة والموثوقية.</p>
+        <div class="car-brands">
+            <div class="brands-slider">
+                <img src="hyundai-logo.png" alt="Hyundai">
+                <img src="mazda-logo.png" alt="Mazda">
+                <img src="honda-logo.png" alt="Honda">
+                <img src="toyota-logo.png" alt="Toyota">
+            </div>
+        </div>
+        <a href="https://wa.me/966592007535" class="btn" target="_blank">تواصل معنا الآن</a>
+    </section>
+
+    <section id="contact" class="section contact">
+        <h2>تواصل معنا</h2>
+        <p>العنوان:<br>
+الرياض، المملكة العربية السعودية</p>
+        <p>الهاتف:<br>
+<a href="tel:+966592007535" style="color: white; text-decoration: none; direction: ltr; display: inline-block;">+966 59 200 7535</a></p>
+        
+    </section>
+</body>
+</html>
