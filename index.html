@@ -217,22 +217,25 @@
         /* ═══════════════════════════════
            REVIEWS CAROUSEL
         ═══════════════════════════════ */
-        .reviews-carousel{overflow:hidden;border-radius:0;position:relative;}
+        .reviews-carousel{overflow:hidden;position:relative;border-radius:20px;}
         .reviews-track{display:flex;direction:ltr;transition:transform .55s cubic-bezier(.4,0,.2,1);}
         .review-slide{min-width:100%;direction:rtl;}
-        .review-card{background:white;border-radius:16px;padding:20px 18px;box-shadow:0 4px 20px rgba(0,0,0,.08);}
-        .rc-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:bold;color:white;flex-shrink:0;}
-        .rc-info .rc-name{font-weight:bold;font-size:13.5px;color:var(--text);}
-        .rc-info .rc-stars{color:#FBBC05;font-size:13px;letter-spacing:1px;margin:2px 0;}
-        .rc-info .rc-date{font-size:11px;color:var(--muted);}
-        .rc-text{font-size:13px;color:#444;line-height:1.75;border-right:3px solid var(--pink);padding-right:11px;margin-bottom:12px;}
-        .rc-footer{display:flex;align-items:center;justify-content:flex-end;gap:5px;font-size:11px;color:#aaa;}
-        .rc-header{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
-        .carousel-dots{display:flex;justify-content:center;gap:7px;margin-top:18px;}
-        .cdot{width:8px;height:8px;border-radius:50%;background:rgba(230,54,121,.22);cursor:pointer;transition:all .35s;}
-        .cdot.active{width:24px;border-radius:10px;background:var(--pink);}
-        .carousel-nav{display:flex;justify-content:center;gap:10px;margin-top:14px;}
-        .cnav{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(230,54,121,.35);background:white;cursor:pointer;font-size:16px;color:var(--pink);display:flex;align-items:center;justify-content:center;transition:all .2s;}
+        /* Vertical card */
+        .review-card{background:white;border-radius:20px;padding:30px 26px 24px;box-shadow:0 6px 28px rgba(0,0,0,.09);border:1.5px solid #f0f0f0;display:flex;flex-direction:column;gap:0;min-height:280px;}
+        .rc-header{display:flex;align-items:center;gap:13px;margin-bottom:18px;}
+        .rc-avatar{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:bold;color:white;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+        .rc-info .rc-name{font-weight:bold;font-size:14px;color:var(--text);}
+        .rc-info .rc-stars{color:#FBBC05;font-size:14px;letter-spacing:2px;margin:3px 0;}
+        .rc-info .rc-date{font-size:11.5px;color:var(--muted);}
+        .rc-text{font-size:14px;color:#555;line-height:1.85;flex:1;border-right:3px solid var(--pink);padding-right:13px;margin-bottom:18px;}
+        .rc-footer{display:flex;align-items:center;justify-content:flex-end;gap:6px;font-size:11.5px;color:#bbb;padding-top:14px;border-top:1px solid #f5f5f5;}
+        /* Nav row */
+        .carousel-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding:0 4px;}
+        .carousel-dots{display:flex;gap:6px;}
+        .cdot{width:7px;height:7px;border-radius:50%;background:rgba(230,54,121,.22);cursor:pointer;transition:all .35s;}
+        .cdot.active{width:22px;border-radius:10px;background:var(--pink);}
+        .carousel-nav{display:flex;gap:8px;}
+        .cnav{width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(230,54,121,.3);background:white;cursor:pointer;font-size:14px;color:var(--pink);display:flex;align-items:center;justify-content:center;transition:all .2s;}
         .cnav:hover{background:var(--pink);color:white;border-color:var(--pink);}
 
         /* ═══════════════════════════════
@@ -687,15 +690,17 @@
                         </div>
 
                     </div>
-                    <div class="carousel-dots" id="reviewDots">
-                        <div class="cdot active" onclick="reviewGoTo(0)"></div>
-                        <div class="cdot" onclick="reviewGoTo(1)"></div>
-                        <div class="cdot" onclick="reviewGoTo(2)"></div>
-                        <div class="cdot" onclick="reviewGoTo(3)"></div>
-                    </div>
-                    <div class="carousel-nav">
-                        <button class="cnav" onclick="reviewPrev()">&#8594;</button>
-                        <button class="cnav" onclick="reviewNext()">&#8592;</button>
+                    <div class="carousel-bottom">
+                        <div class="carousel-dots" id="reviewDots">
+                            <div class="cdot active" onclick="reviewGoTo(0)"></div>
+                            <div class="cdot" onclick="reviewGoTo(1)"></div>
+                            <div class="cdot" onclick="reviewGoTo(2)"></div>
+                            <div class="cdot" onclick="reviewGoTo(3)"></div>
+                        </div>
+                        <div class="carousel-nav">
+                            <button class="cnav" onclick="reviewPrev()">&#8594;</button>
+                            <button class="cnav" onclick="reviewNext()">&#8592;</button>
+                        </div>
                     </div>
                 </div>
             </div>
