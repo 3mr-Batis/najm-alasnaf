@@ -838,6 +838,54 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
         if(!open) item.classList.add('open');
     });
 });
+
+// ===== CUSTOM EVENT TRACKING =====
+(function(){
+    function track(event_name, params){
+        if(typeof gtag === 'function') gtag('event', event_name, params);
+    }
+
+    var rules = [
+        // WhatsApp
+        { selector: '.btn-primary[href*="wa.me"]',   event: 'whatsapp_click', location: 'hero' },
+        { selector: '.btn-store-wa[href*="wa.me"]',  event: 'whatsapp_click', location: 'store' },
+        { selector: '.cinfo-card[href*="wa.me"]',    event: 'whatsapp_click', location: 'contact' },
+        { selector: '.btn-wa-main[href*="wa.me"]',   event: 'whatsapp_click', location: 'cta' },
+        { selector: '.fsoc-wa[href*="wa.me"]',       event: 'whatsapp_click', location: 'footer' },
+        { selector: '.fab-wa[href*="wa.me"]',        event: 'whatsapp_click', location: 'floating' },
+        // Phone
+        { selector: '.btn-ghost[href^="tel:"]',      event: 'phone_click',    location: 'hero' },
+        { selector: '.cinfo-card[href^="tel:"]',     event: 'phone_click',    location: 'contact' },
+        // Maps
+        { selector: '.btn-google-text[href*="maps"]',event: 'maps_click',     location: 'reviews' },
+        { selector: '.cinfo-card[href*="maps"]',     event: 'maps_click',     location: 'contact' },
+        // TikTok
+        { selector: '.soc-btn.soc-tiktok',           event: 'tiktok_click',   location: 'contact' },
+        { selector: '.fsoc-tt',                      event: 'tiktok_click',   location: 'footer' },
+        // Snapchat
+        { selector: '.soc-btn.soc-snap',             event: 'snapchat_click', location: 'contact' },
+        { selector: '.fsoc-snap',                    event: 'snapchat_click', location: 'footer' },
+    ];
+
+    rules.forEach(function(r){
+        document.querySelectorAll(r.selector).forEach(function(el){
+            el.addEventListener('click', function(){
+                track(r.event, { location: r.location });
+            });
+        });
+    });
+
+    // Review modal
+    var origOpen = window.openReviewModal;
+    window.openReviewModal = function(){
+        track('review_modal_open', {});
+        if(origOpen) origOpen();
+    };
+    var goBtn = document.querySelector('.rm-btn-go');
+    if(goBtn) goBtn.addEventListener('click', function(){
+        track('review_submitted', {});
+    });
+})();
 </script>
 
 <!-- Review Modal -->
